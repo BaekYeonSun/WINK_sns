@@ -21,7 +21,7 @@ export function Login(props){
             token.non_field_errors.map((e) => alert(e))
         } else{
             console.log(token);
-            localStorage.setItem('token', token);
+            localStorage.setItem('token', token.token);
             localStorage.setItem('username', input.username);
             localStorage.setItem('password', input.password);
             history.push('/timeline');

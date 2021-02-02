@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as api from '../api/server';
-import {LabelWithInput} from "../components/LabelWithInput";
+import { LabelWithInput } from "../components/LabelWithInput";
 import styled from 'styled-components';
 
 export function Join(props){

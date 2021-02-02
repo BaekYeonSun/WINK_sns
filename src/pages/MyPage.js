@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import * as api from '../api/server';
-import styled from 'styled-components';
 import { LabelWithInput } from "../components/LabelWithInput";
+import styled from 'styled-components';
 
 export function MyPage(props){
-    // const token = localStorage.getItem('token');
-    // const username = localStorage.getItem('username');
-    // const password = localStorage.getItem('password');
-    // console.log(token);
-
     const [inputs, setInputs] = useState({
         username:'', password: '', email:'', last_name:'', first_name:''
     });
@@ -57,8 +52,8 @@ export function MyPage(props){
                 <LabelWithInput label={"first_name"} name={"first_name"} type={"text"} value={inputs.first_name} onChange={getValue}/>
             </div>
             <WrapBtn>
-                <Button1 id={"update"} onClick={handleUpdate}>UPDATE</Button1>
-                <Button2 id={"delete"} onClick={handleDelete}>DELETE</Button2>
+                <Button id={"update"} onClick={handleUpdate}>UPDATE</Button>
+                <Button id={"delete"} onClick={handleDelete}>DELETE</Button>
             </WrapBtn>
         </Wrap>
     </>
@@ -70,11 +65,7 @@ const Wrap = styled.div`
 const WrapBtn = styled.div`
   text-align: center;
 `;
-const Button1 = styled.button`
-  padding: 10px 15px 10px 15px;
-  margin: 10px;
-`;
-const Button2 = styled.button`
+const Button = styled.button`
   padding: 10px 15px 10px 15px;
   margin: 10px;
 `;
