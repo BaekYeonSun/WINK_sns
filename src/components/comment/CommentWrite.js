@@ -35,7 +35,7 @@ export function CommentWrite(props){
                 <Link to={"/timeline"}>
                     <button id={"btn"}>TIMELINE</button>
                 </Link>
-                <button id={"btn"} onClick={handleClick}>POST</button>
+                <button id={"btn"} onClick={handleClick}>COMMENT</button>
             </div>
         </div>
     </div>
