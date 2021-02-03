@@ -8,6 +8,7 @@ export function Post(props){
         name: '',
         content: '',
     });
+
     const getValue = e => {
         const {name, value} = e.target;
         setPost({
