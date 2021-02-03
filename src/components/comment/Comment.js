@@ -18,7 +18,7 @@ export function Comment(props){
     const handleUpdate = (id, name) => {
         if(localStorage.getItem('username') === name){
             api.updateComment(id, state.content);
-            alert(id+'번의 ' + name + '님의 게시글이 변경되었습니다.');
+            alert(id+'번의 ' + name + '님의 댓글이 변경되었습니다.');
         }
         else{
             alert("작성자와 본인이 동일하지 않습니다.");
