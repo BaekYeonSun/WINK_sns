@@ -33,10 +33,12 @@ export function MyPage(props){
 
     const handleUpdate = e => {
         api.updateUser(inputs.username, inputs.password, inputs.email, inputs.last_name, inputs.first_name);
+        alert(inputs.username + '님의 개인정보가 변경되었습니다.');
     }
 
     const handleDelete = e => {
         api.deleteUser();
+        alert(inputs.username + '님이 삭제되었습니다.');
     }
 
     return <>
