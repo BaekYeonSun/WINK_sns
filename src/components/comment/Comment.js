@@ -28,7 +28,7 @@ export function Comment(props){
     const handleDelete = (id, name) => {
         if(localStorage.getItem('username') === name){
             api.deleteComment(id);
-            const postID = localStorage.getItem('postID')
+            const postID = localStorage.getItem('postID');
             alert(postID + '번의 게시글의 ' + id +'번의 ' + name + '님의 댓글이 삭제되었습니다.');
         }
         else{

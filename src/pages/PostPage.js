@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import * as api from "../api/server";
-import { Post } from "../components/comment/Post";
+import { Post } from "../components/timeline/Post";
 import { Comments } from "../components/comment/Comments";
 import { CommentWrite } from "../components/comment/CommentWrite";
 

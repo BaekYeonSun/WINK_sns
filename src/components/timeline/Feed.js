@@ -1,19 +1,8 @@
 import React from 'react';
-import * as api from '../../api/server';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
 export function Feed(props){
-    const handleDelete = (id, name) => {
-        if(localStorage.getItem('username') === name){
-            api.deleteFeed(id)
-            alert(id+'번의 ' + name + '님의 게시글이 삭제되었습니다.');
-        }
-        else{
-            alert("작성자와 본인이 동일하지 않습니다.");
-        }
-    };
-
     return <>
         <Wrap>
             {/*<div>id : {props.id}</div>*/}
@@ -21,9 +10,8 @@ export function Feed(props){
             <div>내용 : {props.body}</div>
             <WrapBtn>
                 <Link to={"./post/" + props.id + "/"}>
-                    <Button id={"comment"}>COMMENT</Button>
+                    <Button id={"post"}>POST PAGE</Button>
                 </Link>
-                <Button id={"delete"} onClick={() => {handleDelete(props.id, props.name)}}>DELETE</Button>
             </WrapBtn>
         </Wrap>
     </>;

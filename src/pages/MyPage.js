@@ -36,9 +36,7 @@ export function MyPage(props){
     }
 
     const handleDelete = e => {
-        const { history } = props;
         api.deleteUser();
-        history.push('/');
     }
 
     return <>

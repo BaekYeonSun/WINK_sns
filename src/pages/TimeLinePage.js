@@ -8,7 +8,7 @@ export function TimeLinePage(props){
 
     useEffect(() => {
         const server = async () => {
-            setFeeds(await api.readFeeds());
+            setFeeds((await api.readFeeds()).reverse());
         }
         server();
     }, []);

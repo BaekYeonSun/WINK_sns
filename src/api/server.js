@@ -27,17 +27,6 @@ export async function readFeeds(){
     return await feedResult.json();
 }
 
-export async function deleteFeed(id){
-    const token = localStorage.getItem('token');
-    await fetch(serverUri + '/feed/' + id,{
-        method: 'Delete',
-        headers: {
-            'Authorization' : 'Token ' + token,
-        },
-    });
-    window.location.reload();
-}
-
 export async function readPost(id){
     let postInfo = {};
     const token = localStorage.getItem('token');
@@ -53,6 +42,32 @@ export async function readPost(id){
         username: postInfo.owner,
         content: postInfo.content
     };
+}
+
+export async function deletePost(id){
+    const token = localStorage.getItem('token');
+    await fetch(serverUri + '/feed/' + id + "/",{
+        method: 'Delete',
+        headers: {
+            'Authorization' : 'Token ' + token,
+        },
+    });
+    window.location.href = "/timeline";
+}
+
+export async function updatePost(id, content){
+    const token = localStorage.getItem('token');
+    await fetch(serverUri + '/feed/' + id + "/", {
+        method: 'put',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization' : 'Token ' + token,
+        },
+        body: JSON.stringify({
+            content: content,
+        })
+    })
+    .catch(err => console.log("PUT error: ", err));
 }
 
 export async function createComment(id, content) {
@@ -84,7 +99,7 @@ export async function readComments(id){
 
 export async function deleteComment(id){
     const token = localStorage.getItem('token');
-    await fetch(serverUri + '/feed/' + localStorage.getItem('postID') + '/comment/' + id,{
+    await fetch(serverUri + '/feed/' + localStorage.getItem('postID') + '/comment/' + id + "/",{
         method: 'Delete',
         headers: {
             'Authorization' : 'Token ' + token,
@@ -95,7 +110,7 @@ export async function deleteComment(id){
 
 export async function updateComment(id, content){
     const token = localStorage.getItem('token');
-    await fetch(serverUri + '/feed/' + localStorage.getItem('postID') + '/comment/' + id, {
+    await fetch(serverUri + '/feed/' + localStorage.getItem('postID') + '/comment/' + id + "/", {
         method: 'put',
         headers: {
             'Content-Type' : 'application/json',
@@ -190,7 +205,7 @@ export async function readUserInfo(){
 export async function updateUser(username, password, email, last_name, first_name){
     let id = localStorage.getItem('id');
     let token = localStorage.getItem('token');
-    await fetch(serverUri + '/user/' + id, {
+    await fetch(serverUri + '/user/' + id + "/", {
         method: 'put',
         mode: 'cors',
         headers: {
@@ -210,8 +225,9 @@ export async function updateUser(username, password, email, last_name, first_nam
 
 export async function deleteUser(){
     let id = localStorage.getItem('id');
-    await fetch(serverUri + '/user/' + id, {
+    await fetch(serverUri + '/user/' + id + "/", {
         method: 'delete'
     })
     .catch(err => console.log("DELETE error: ", err));
+    window.location.href = "/";
 }

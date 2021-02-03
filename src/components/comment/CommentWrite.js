@@ -32,7 +32,7 @@ export function CommentWrite(props){
                 <textarea name="content" id={"content"} cols = {"30"} rols = {"10"} value={state.content} placeholder={"input the comments"} onChange={getValue}/>
             </div>
             <div id={"wrapBtn"}>
-                <Link to={"./timeline"}>
+                <Link to={"/timeline"}>
                     <button id={"btn"}>TIMELINE</button>
                 </Link>
                 <button id={"btn"} onClick={handleClick}>POST</button>
